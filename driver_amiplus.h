@@ -45,7 +45,7 @@ private:
       if (c == total_register) {
         ESP_LOGVV(TAG, "C Value: %08X", c,);
         i += 5;
-        ESP_LOGVV(TAG, "DATA: %08X,%08X,%08X", telegram[i-1],telegram[i],telegram[i+1]telegram[i+2]);
+        ESP_LOGVV(TAG, "DATA: %08X,%08X,%08X", telegram[i-1],telegram[i],telegram[i+1],telegram[i+2]);
         if ((uint8_t)telegram[i-1] == phase) {
           usage = bcd_2_int(telegram, i, 2);
           ret_val = usage / 1.0;
