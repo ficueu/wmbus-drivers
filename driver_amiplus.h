@@ -38,10 +38,12 @@ private:
     uint32_t usage = 0;
     size_t i = 11;
     uint32_t total_register = 0x0AFDC9FC;
+    ESP_LOGVV(TAG, "Telegram size: %d", telegram.size());
     while (i < telegram.size()) {
       uint32_t c = (((uint32_t)telegram[i+0] << 24) | ((uint32_t)telegram[i+1] << 16) |
                     ((uint32_t)telegram[i+2] << 8) | ((uint32_t)telegram[i+3]));
       if (c == total_register) {
+        ESP_LOGVV(TAG, "C Value: %d", c);
         i += 5;
         if ((uint8_t)telegram[i-1] == phase) {
           usage = bcd_2_int(telegram, i, 2);
