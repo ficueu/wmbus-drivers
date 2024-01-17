@@ -43,7 +43,7 @@ private:
       uint32_t c = (((uint32_t)telegram[i+0] << 24) | ((uint32_t)telegram[i+1] << 16) |
                     ((uint32_t)telegram[i+2] << 8) | ((uint32_t)telegram[i+3]));
       if (c == total_register) {
-        ESP_LOGVV(TAG, "C Value: %08X", c,);
+        ESP_LOGVV(TAG, "C Value: %08X", c);
         i += 5;
         ESP_LOGVV(TAG, "DATA: %08X,%08X,%08X", telegram[i-1],telegram[i],telegram[i+1],telegram[i+2]);
         if ((uint8_t)telegram[i-1] == phase) {
